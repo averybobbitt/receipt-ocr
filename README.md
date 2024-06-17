@@ -4,7 +4,7 @@ This repository hosts a script and a Docker-compose setup for performing Optical
 
 ## Prerequisites
 
-- Python 3.x
+- Python >=3.9
 - Docker
 - Docker-compose
 

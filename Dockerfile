@@ -1,7 +1,7 @@
 # pull the official docker image
-FROM python:3.11.1-slim
+FROM python:3.12-slim
 
-# Install Tesseract and its dependencies
+# install tesseract and its dependencies
 RUN apt-get update && apt-get install -y tesseract-ocr libtesseract-dev
 
 # set work directory
@@ -16,6 +16,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # copy project
-COPY . .
+COPY src/ .
 
+# uvicorn entrypoint
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]

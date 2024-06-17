@@ -1,7 +1,4 @@
-opencv-python-headless
-imutils
-scipy
-pytesseract
-fastapi
-uvicorn
-python-multipart
+numpy~=2.0.0
+fastapi~=0.111.0
+imutils~=0.5.4
+pytesseract~=0.3.10
