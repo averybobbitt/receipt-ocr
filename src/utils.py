@@ -1,5 +1,3 @@
-from os import PathLike
-
 import cv2
 import imutils
 import pytesseract
@@ -7,14 +5,12 @@ from imutils.perspective import four_point_transform
 from numpy import ndarray
 
 
-def perform_ocr(img: str | PathLike | ndarray):
+def perform_ocr(img: str | ndarray):
     # input must be a file path or image
-    if isinstance(img, str) or isinstance(img, PathLike):
-        img_orig = cv2.imread(img)
-    elif isinstance(img, ndarray):
+    if isinstance(img, ndarray):
         img_orig = cv2.imdecode(img, cv2.IMREAD_COLOR)
     else:
-        raise TypeError
+        img_orig = cv2.imread(img)
 
     # normalize image
     image = img_orig.copy()

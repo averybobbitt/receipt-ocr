@@ -15,7 +15,7 @@ async def root():
 @app.post("/ocr/")
 async def ocr_receipt(file: UploadFile):
     # check if the uploaded file is an image
-    if file.content_type.startswith("image"):
+    if file.content_type is not None and file.content_type.startswith("image"):
         image_bytes = await file.read()
         img_array = frombuffer(image_bytes, uint8)
         ocr_text = perform_ocr(img_array)
